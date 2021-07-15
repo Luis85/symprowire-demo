@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Application{% endblock %}</title>
+</head>
+<body>
+{% block body %}
+    <div>
+        <h1>{{ title }}</h1>
+
+        <ul>
+            {% for post in posts %}
+                <li><a href="{{ path('blog_post', {slug: post.name} ) }}">{{ post.title }} - Author: {{ post.createdUser.name }}</a></li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}
+</body>
+</html>
